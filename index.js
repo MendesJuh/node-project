@@ -1,3 +1,4 @@
+import express from 'express'
 import { v4 } from "uuid";
 import cors from "cors";
 import { request } from "express";
@@ -36,7 +37,7 @@ app.get('/users', (request, response) => {
 app.post('/users', (request, response) => {
     const { name, age } = request.body;
 
-    const user = { id: uuid.v4(), name, age };
+    const user = { id: v4(), name, age };
 
     users.push(user);
 
