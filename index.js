@@ -1,8 +1,8 @@
 import express from 'express'
 import { v4 } from "uuid";
 import cors from "cors";
-import { request } from "express";
-import { response } from "express";
+//import { request } from "express";
+//import { response } from "express";
 
 
 //const uuid = require('uuid')
@@ -35,9 +35,9 @@ app.get('/users', (request, response) => {
 });
 
 app.post('/users', (request, response) => {
-    const { name, age } = request.body;
+    const {order,  name } = request.body;
 
-    const user = { id: v4(), name, age };
+    const user = { id: v4(), order, name };
 
     users.push(user);
 
@@ -46,11 +46,11 @@ app.post('/users', (request, response) => {
 });
 
 app.put("/users/:id", checkUsersId, (request, response) => {
-    const { name, age } = request.body;
+    const { order, name } = request.body;
     const index = request.userIndex;
     const id = request.userId;
 
-    const updateUser = { id, name, age };
+    const updateUser = { id, order, name };
 
     users[index] = updateUser;
 
